@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  		<title>Browse Logs</title>
+                      <style>
+            *{box-sizing: border-box;}
+
+html
+{
+    height:100%;
+    width:100%;
+    
+    
+}
+
+
+
+body
+{
+    background-color: #005F6D;
+    background-size: cover;
+    height:80%;
+    width:80%;
+    padding:10px;
+}
+
+
+
+h1{
+    height:22%;
+    width:95%;
+    color:whitesmoke;
+    
+        padding-left:350px;
+        text-align: center;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    padding: -1px;
+    border: 2px solid black;
+    width:124%;
+}
+
+th {
+    height: 50px;
+    background-color: #008000;
+    color: #ffffff;
+}
+
+tr {
+  height: 30px;
+  background-color: #aaaaaa;
+}
+tr:nth-child(even) {background-color: #f2f2f2}
+
+tr:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+        </style>
+
+  </head>
+  
+  <body>
+      
+  	<h1>
+  		Welcome, {{ uname }}
+  	</h1>
+  	
+    {% if records %}
+      <table>
+        <tr>
+          <th>Sensor Type</th>
+          <th>Sensor Value</th>
+          <th>Time recorded</th>
+        </tr>
+        {% for record in records %}
+        
+          
+
+            <tr>
+              <td>{{ record.sensor_type }}</td>
+              
+              <td
+              {% if record.reading > 100 %}
+                style="color:red; text-decoration:underline;"
+              {% endif %}>
+              {{ record.reading }}
+              </td>
+
+              <td>{{ record.time }}</td>
+            </tr>
+          
+        {% endfor %}
+      </table>
+    {% else %}
+      <h4 style="color:white; text-align:center; margin-left: 30%; ">No readings available.</h3>
+    {% endif %}
+  	
+
+    <button><a href="{% url 'terminal:clear' %}">Clear Logs</a></button>
+  </body>
+</html>

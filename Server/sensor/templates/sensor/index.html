@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+    <title>SiBN - Sensor</title>
+          <style>
+            *{box-sizing: border-box;}
+
+html
+{
+    height:100%;
+    width:100%;
+    
+    
+}
+
+
+
+button
+{
+    height:37px;
+    width:90%;
+      margin:0px 10px 25px 15px;
+    float:left;
+    
+}
+
+body
+{
+    background-color: #005F6D;
+    background-size: cover;
+    height:80%;
+    width:80%;
+    padding:10px;
+}
+
+.wrapper
+{
+    height:223px;
+    width:20%;
+    border-radius: 15px;
+    color:whitesmoke;
+   
+    background-color: #91BF34;
+    opacity:0.8;
+    position:fixed;
+    top:20%;
+    right:40%;
+     padding:18px 10px 10px 10px;
+     border-radius: 15px;
+}
+
+h2{
+    height:22%;
+    width:95%;
+    color:whitesmoke;
+    
+        margin:10px 36px;
+}
+
+ 
+        </style>
+
+
+  </head>
+
+  <body>
+        <div class="wrapper">
+        <h2>Simulated Sensor</h2>
+        <a href="{% url 'sensor:tremor' %}">
+        	<button>Tremor Sensor</button>
+        </a>
+        <a href="{% url 'sensor:fire' %}">
+        	<button>Fire Detector</button>
+        </a>
+        
+        </div>
+
+  </body>
+</html>
